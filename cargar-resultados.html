@@ -13,7 +13,7 @@
         }
         
         .header {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            background: linear-gradient(135deg, #1a1a1a, #333333);
             color: white;
             padding: 20px;
             border-radius: 10px;
@@ -78,7 +78,7 @@
         }
         
         .partido-card.jugado {
-            border-left: 4px solid #4CAF50;
+            border-left: 4px solid #FF6600;
         }
         
         .partido-card.pendiente {
@@ -108,7 +108,7 @@
         }
         
         .estado-jugado {
-            background: #4CAF50;
+            background: #FF6600;
             color: white;
         }
         
@@ -129,7 +129,7 @@
         
         .equipo-nombre {
             font-weight: bold;
-            color: #2c3e50;
+            color: #1a1a1a;
         }
         
         .equipo-input {
@@ -195,12 +195,12 @@
         }
         
         .btn-primary {
-            background: #4CAF50;
+            background: #FF6600;
             color: white;
         }
         
         .btn-primary:hover {
-            background: #45a049;
+            background: #E65100;
         }
         
         .btn-danger {
@@ -507,7 +507,7 @@
                             <h4>✓ Resultado cargado (W.O.)</h4>
                             <p style="margin: 5px 0; color: #ff9800; font-weight: bold;">Ganador: ${ganadorNombre}</p>
                             ${partido.sets_detalle && partido.sets_detalle.length > 0 ? 
-                                `<div class="resultado-tenis" style="font-size: 16px; font-weight: bold; color: #2c3e50; font-family: monospace; letter-spacing: 1px; margin-top: 5px;">${partido.sets_detalle.map(s => `${s.games_local}/${s.games_visitante}`).join(' ')}</div>` : 
+                                `<div class="resultado-tenis" style="font-size: 16px; font-weight: bold; color: #1a1a1a; font-family: monospace; letter-spacing: 1px; margin-top: 5px;">${partido.sets_detalle.map(s => `${s.games_local}/${s.games_visitante}`).join(' ')}</div>` : 
                                 '<div class="resultado-tenis" style="font-size: 16px; font-weight: bold; color: #666;">6/0 6/0</div>'
                             }
                         </div>
@@ -527,7 +527,7 @@
                         <div class="resultado-actual">
                             <h4>✓ Resultado cargado</h4>
                             <p style="margin: 5px 0; color: #ff9800; font-weight: bold;">Ganador: ${ganadorNombre}</p>
-                            <div class="resultado-tenis" style="font-size: 18px; font-weight: bold; color: #2c3e50; font-family: 'Courier New', monospace; letter-spacing: 2px; margin-top: 8px;">
+                            <div class="resultado-tenis" style="font-size: 18px; font-weight: bold; color: #1a1a1a; font-family: 'Courier New', monospace; letter-spacing: 2px; margin-top: 8px;">
                                 ${setsFormato}
                             </div>
                         </div>

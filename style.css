@@ -9,8 +9,8 @@ body {
     margin: 0;
     padding: 20px;
     position: relative;
-    background-color: #80b97f;
-    background-image: linear-gradient(to bottom, #f2f0cc, #a3a9aa);
+    background-color: #FFF3E0;
+    background-image: linear-gradient(to bottom, #FFF3E0, #FFE0B2);
 }
 
 body::before {
@@ -41,7 +41,7 @@ header {
     display: flex;
     align-items: center;
     gap: 25px;
-    border-bottom: 2px solid #4CAF50;
+    border-bottom: 2px solid #FF6600;
     padding-bottom: 20px;
     margin-bottom: 30px;
 }
@@ -58,16 +58,16 @@ header {
 }
 
 header h1 {
-    color: #2c3e50;
+    color: #1a1a1a;
     margin-bottom: 5px;
     margin-top: 0;
 }
 
 /* ... (el resto de tus estilos del formulario, etc. van aquí. Los pego para asegurar) ... */
 
-h2 { color: #4CAF50; border-left: 4px solid #bab3a8; padding-left: 10px; margin-bottom: 20px; }
+h2 { color: #FF6600; border-left: 4px solid #A1887F; padding-left: 10px; margin-bottom: 20px; }
 #info-torneo ul { list-style-type: none; padding: 0; }
-#info-torneo li { background-color: #f9f9f9; padding: 10px 15px; border-radius: 5px; margin-bottom: 8px; border-left: 3px solid #4CAF50; }
+#info-torneo li { background-color: #f9f9f9; padding: 10px 15px; border-radius: 5px; margin-bottom: 8px; border-left: 3px solid #FF6600; }
 .form-group-duo {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -78,15 +78,15 @@ h2 { color: #4CAF50; border-left: 4px solid #bab3a8; padding-left: 10px; margin-
 .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"], .form-group select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 1em; }
 .availability-fieldset { border: 1px solid #ccc; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
 .availability-fieldset legend { font-weight: 700; color: #555; padding: 0 10px; }
-.availability-instructions { font-size: 0.9em; color: #7f8c8d; margin-top: 0; margin-bottom: 15px; }
+.availability-instructions { font-size: 0.9em; color: #8D6E63; margin-top: 0; margin-bottom: 15px; }
 .availability-grid { display: grid; grid-template-columns: max-content 1fr; gap: 10px 15px; align-items: center; }
 .availability-grid label { font-weight: normal; text-align: right; }
 .availability-grid input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
 .checkbox-group { display: flex; align-items: center; margin-top: 25px; }
 .checkbox-group input[type="checkbox"] { margin-right: 10px; width: 20px; height: 20px; }
-button[type="submit"] { width: 100%; padding: 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-size: 1.2em; font-weight: 700; cursor: pointer; }
+button[type="submit"] { width: 100%; padding: 15px; background-color: #FF6600; color: white; border: none; border-radius: 5px; font-size: 1.2em; font-weight: 700; cursor: pointer; }
 .hidden { display: none; }
-#confirmationMessage { background-color: #e8f5e9; border-left: 5px solid #4CAF50; padding: 20px; border-radius: 5px; text-align: center; }
+#confirmationMessage { background-color: #FFF3E0; border-left: 5px solid #FF6600; padding: 20px; border-radius: 5px; text-align: center; }
 input.error, select.error { border-color: #e74c3c; background-color: #fbeae5; }
 footer {
     margin-top: 40px;
@@ -133,8 +133,8 @@ footer {
 
 /* Estilo para el enlace a la lista de inscriptos */
 .view-list-link { text-align: center; margin-bottom: 30px; }
-.view-list-link a { display: inline-block; padding: 10px 20px; background-color: #245c30; color: #fff; font-weight: bold; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease; }
-.view-list-link a:hover { background-color: #5ca78f; }
+.view-list-link a { display: inline-block; padding: 10px 20px; background-color: #E65100; color: #fff; font-weight: bold; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease; }
+.view-list-link a:hover { background-color: #FF9800; }
 /* ========================================= */
 /* --- ESTILOS página isncriptos --- */
 /* ========================================= */
@@ -182,7 +182,7 @@ footer {
 }
 
 #tabla-inscriptos thead {
-    background-color: #4CAF50;
+    background-color: #FF6600;
     color: white;
 }
 
@@ -213,7 +213,7 @@ footer {
 }
 
 .back-link a {
-    color: #4CAF50;
+    color: #FF6600;
     text-decoration: none;
     font-weight: bold;
 }
@@ -260,7 +260,7 @@ footer {
     background-color: #f9f9f9;
     padding: 8px;
     border-radius: 5px;
-    border: 1px solid #4CAF50; /* <-- BORDE VERDE AÑADIDO */
+    border: 1px solid #FF6600; /* <-- BORDE NARANJA AÑADIDO */
     transition: background-color 0.2s ease; /* Transición suave */
 }
 
@@ -369,7 +369,7 @@ footer {
 /* NUEVO: Estilos para las leyendas de texto */
 .modal-instruccion {
     font-weight: bold;
-    color: #4CAF50; /* Verde para que resalte */
+    color: #FF6600; /* Naranja para que resalte */
     margin-top: 20px;
 }
 .modal-agradecimiento {
@@ -408,27 +408,27 @@ footer {
     background: rgba(255, 255, 255, 0.95);
     padding: 2rem;
     border-radius: 12px;
-    border: 2px solid #4CAF50;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+    border: 2px solid #FF6600;
+    box-shadow: 0 4px 15px rgba(255, 102, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .grupo-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 8px 25px rgba(255, 102, 0, 0.3);
 }
 
 .grupo-card h3 {
     margin: 0 0 1rem 0;
-    color: #2c3e50;
+    color: #1a1a1a;
     font-size: 1.3rem;
     text-align: center;
-    border-bottom: 2px solid #4CAF50;
+    border-bottom: 2px solid #FF6600;
     padding-bottom: 0.5rem;
 }
 
 .integrantes-count {
-    color: #4CAF50;
+    color: #FF6600;
     font-weight: bold;
     text-align: center;
     margin-bottom: 1.5rem;
@@ -442,17 +442,17 @@ footer {
 }
 
 .integrantes-list li {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, #FFF8F0 0%, #FFE0B2 100%);
     padding: 0.8rem 1rem;
     margin: 0.5rem 0;
     border-radius: 8px;
     font-size: 0.95rem;
-    border-left: 4px solid #4CAF50;
+    border-left: 4px solid #FF6600;
     transition: all 0.2s ease;
 }
 
 .integrantes-list li:hover {
-    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+    background: linear-gradient(135deg, #FFE0B2 0%, #FFCC80 100%);
     transform: translateX(5px);
 }
 
@@ -473,19 +473,19 @@ footer {
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
-    border: 1px solid #4CAF50;
+    border: 1px solid #FF6600;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .categoria-card h3 {
     margin: 0 0 0.5rem 0;
-    color: #2c3e50;
+    color: #1a1a1a;
 }
 
 .categoria-card .contador {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #4CAF50;
+    color: #FF6600;
 }
 
 /* Configuración de grupos */
@@ -494,7 +494,7 @@ footer {
     padding: 1.5rem;
     margin: 1rem 0;
     border-radius: 8px;
-    border: 1px solid #4CAF50;
+    border: 1px solid #FF6600;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -513,7 +513,7 @@ footer {
 
 .grupo-input input {
     padding: 0.5rem;
-    border: 1px solid #4CAF50;
+    border: 1px solid #FF6600;
     border-radius: 4px;
     font-size: 1rem;
 }
@@ -523,7 +523,7 @@ footer {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
-    color: #2c3e50;
+    color: #1a1a1a;
 }
 
 /* Botones */
@@ -535,7 +535,7 @@ footer {
 }
 
 .btn-primary {
-    background: #4CAF50;
+    background: #FF6600;
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -546,7 +546,7 @@ footer {
 }
 
 .btn-primary:hover {
-    background: #45a049;
+    background: #E65100;
 }
 
 .btn-primary:disabled {
@@ -555,7 +555,7 @@ footer {
 }
 
 .btn-success {
-    background: #27ae60;
+    background: #F57C00;
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -566,7 +566,7 @@ footer {
 }
 
 .btn-success:hover {
-    background: #219a52;
+    background: #E65100;
 }
 
 .btn-secondary {
@@ -581,7 +581,7 @@ footer {
 }
 
 .btn-secondary:hover {
-    background: #7f8c8d;
+    background: #8D6E63;
 }
 
 /* Loading overlay */
@@ -605,7 +605,7 @@ footer {
 
 .spinner {
     border: 4px solid #f3f3f3;
-    border-top: 4px solid #4CAF50;
+    border-top: 4px solid #FF6600;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -634,10 +634,10 @@ footer {
     font-weight: bold;
 }
 
-.notification-info { background: #3498db; }
-.notification-success { background: #27ae60; }
+.notification-info { background: #FF9800; }
+.notification-success { background: #F57C00; }
 .notification-error { background: #e74c3c; }
-.notification-warning { background: #f39c12; }
+.notification-warning { background: #E65100; }
 
 /* ================================================= */
 /* --- REGLAS RESPONSIVE PARA EL MODAL --- */
@@ -686,8 +686,8 @@ footer {
 .partidos-titulo {
     margin-top: 3rem;
     margin-bottom: 1rem;
-    color: #2980b9;
-    border-bottom: 3px solid #2980b9;
+    color: #E65100;
+    border-bottom: 3px solid #E65100;
     padding-bottom: 0.5rem;
     font-size: 1.4rem;
 }
@@ -697,7 +697,7 @@ footer {
     background: rgba(255, 255, 255, 0.8);
     padding: 1.5rem;
     border-radius: 8px;
-    border: 1px solid #3498db;
+    border: 1px solid #FF9800;
 }
 
 .partido-item {
@@ -708,7 +708,7 @@ footer {
     background: #fff;
     margin: 0.8rem 0;
     border-radius: 8px;
-    border-left: 4px solid #3498db;
+    border-left: 4px solid #FF9800;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -731,7 +731,7 @@ footer {
 .partido-local {
     text-align: left;
     font-weight: 600;
-    color: #2c3e50;
+    color: #1a1a1a;
     white-space: nowrap;
 }
 
@@ -746,7 +746,7 @@ footer {
 .partido-visitante {
     text-align: left;
     font-weight: 600;
-    color: #2c3e50;
+    color: #1a1a1a;
     white-space: nowrap;
 }
 
@@ -758,8 +758,8 @@ footer {
 }
 
 .horario-asignado {
-    background: #ecf0f1;
-    color: #2c3e50;
+    background: #FFF3E0;
+    color: #1a1a1a;
     padding: 6px 12px;
     border-radius: 4px;
     font-size: 0.9rem;
@@ -798,13 +798,13 @@ footer {
     margin: 0.25rem 0;
     background: #fff;
     border-radius: 4px;
-    border-left: 3px solid #3498db;
+    border-left: 3px solid #FF9800;
     font-size: 0.9rem;
 }
 
 .jugador-nombre {
     font-weight: 600;
-    color: #2c3e50;
+    color: #1a1a1a;
 }
 
 /* ========================================= */
@@ -847,7 +847,7 @@ footer {
 
 .sin-grupo-ayuda {
     font-size: 0.95rem;
-    color: #7f8c8d;
+    color: #8D6E63;
     font-style: italic;
     margin-top: 1.5rem;
     padding: 1rem;
@@ -946,10 +946,10 @@ footer {
 
 .horarios-disponibles .jugador-nombre {
     font-weight: 600;
-    color: #2c3e50;
+    color: #1a1a1a;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
-    border-bottom: 1px solid #ecf0f1;
+    border-bottom: 1px solid #FFF3E0;
     padding-bottom: 0.3rem;
 }
 
@@ -978,7 +978,7 @@ footer {
 .horarios-disponibles .horario-tag {
     display: inline-block;
     background: #e8f4f8;
-    color: #2980b9;
+    color: #F57C00;
     padding: 3px 8px;
     margin: 2px;
     border-radius: 4px;
@@ -1006,7 +1006,7 @@ footer {
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
-    background: #3498db;
+    background: #FF9800;
     color: white;
     border: none;
     padding: 6px 10px;
@@ -1017,7 +1017,7 @@ footer {
 }
 
 .editar-grupos .btn-editar-horario:hover {
-    background: #2980b9;
+    background: #F57C00;
 }
 
 .editar-grupos .horarios-disponibles {
@@ -1034,7 +1034,7 @@ footer {
     padding: 0.5rem;
     background: #fff;
     border-radius: 4px;
-    border-left: 3px solid #3498db;
+    border-left: 3px solid #FF9800;
 }
 
 .editar-grupos .selector-horario-modal {
@@ -1046,7 +1046,7 @@ footer {
     gap: 8px;
     align-items: center;
     background: #fff;
-    border: 2px solid #3498db;
+    border: 2px solid #FF9800;
     border-radius: 6px;
     padding: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -1054,14 +1054,14 @@ footer {
 
 .editar-grupos .select-horario {
     padding: 6px 10px;
-    border: 1px solid #bdc3c7;
+    border: 1px solid #D7CCC8;
     border-radius: 4px;
     font-size: 0.85rem;
     min-width: 200px;
 }
 
 .editar-grupos .btn-guardar-horario {
-    background: #27ae60;
+    background: #F57C00;
     color: white;
     border: none;
     padding: 6px 12px;
@@ -1111,7 +1111,7 @@ footer {
 }
 
 .fecha-encabezado {
-    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
     color: white;
     padding: 1rem 1.5rem;
     display: flex;
@@ -1149,9 +1149,9 @@ footer {
     align-items: center;
     padding: 0.6rem 0.8rem;
     margin: 0.4rem 0;
-    background: #f8f9fa;
+    background: #FFF8F0;
     border-radius: 8px;
-    border-left: 4px solid #3498db;
+    border-left: 4px solid #FF9800;
     min-height: 50px;
 }
 
@@ -1161,7 +1161,7 @@ footer {
 }
 
 .fecha-grupo .partido-hora {
-    background: #27ae60;
+    background: #F57C00;
     color: white;
     padding: 5px 10px;
     border-radius: 4px;
@@ -1185,7 +1185,7 @@ footer {
 .fecha-grupo .partido-local,
 .fecha-grupo .partido-visitante {
     font-weight: 600;
-    color: #2c3e50;
+    color: #1a1a1a;
     font-size: 0.85rem;
 }
 
@@ -1197,7 +1197,7 @@ footer {
 
 .fecha-grupo .partido-categoria {
     background: #e8f4f8;
-    color: #2980b9;
+    color: #F57C00;
     padding: 4px 12px;
     border-radius: 4px;
     font-size: 0.85rem;
@@ -1227,7 +1227,7 @@ footer {
 }
 
 .fecha-grupo .btn-editar-horario {
-    background: #3498db;
+    background: #FF9800;
     color: white;
     border: none;
     padding: 8px;
@@ -1242,7 +1242,7 @@ footer {
 }
 
 .fecha-grupo .btn-editar-horario:hover {
-    background: #2980b9;
+    background: #F57C00;
 }
 
 .fecha-grupo .selector-horario-modal {
@@ -1253,21 +1253,21 @@ footer {
     justify-content: flex-end;
     padding: 10px;
     background: #fff;
-    border: 2px solid #3498db;
+    border: 2px solid #FF9800;
     border-radius: 6px;
     margin-top: 10px;
 }
 
 .fecha-grupo .select-horario {
     padding: 6px 10px;
-    border: 1px solid #bdc3c7;
+    border: 1px solid #D7CCC8;
     border-radius: 4px;
     font-size: 0.85rem;
     min-width: 250px;
 }
 
 .fecha-grupo .btn-guardar-horario {
-    background: #27ae60;
+    background: #F57C00;
     color: white;
     border: none;
     padding: 6px 12px;
@@ -1307,8 +1307,8 @@ footer {
     padding: 1.5rem;
     border-radius: 12px;
     margin: 2rem 0;
-    border: 2px solid #4CAF50;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+    border: 2px solid #FF6600;
+    box-shadow: 0 4px 15px rgba(255, 102, 0, 0.2);
 }
 
 .filtros-grid {
@@ -1346,17 +1346,17 @@ footer {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    background: #f8f9fa;
+    background: #FFF8F0;
     padding: 0.5rem;
     border-radius: 12px;
-    border: 2px solid #e9ecef;
+    border: 2px solid #FFE0B2;
 }
 
 .toggle-btn {
     padding: 0.75rem 1.5rem;
     border: 2px solid transparent;
     background: white;
-    color: #4CAF50;
+    color: #FF6600;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1365,16 +1365,16 @@ footer {
 }
 
 .toggle-btn.active {
-    background: #4CAF50;
+    background: #FF6600;
     color: white;
-    border-color: #45a049;
+    border-color: #E65100;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
 }
 
 .toggle-btn:hover:not(.active) {
-    background: #e8f5e9;
-    border-color: #4CAF50;
+    background: #FFF3E0;
+    border-color: #FF6600;
     transform: translateY(-1px);
 }
 
@@ -1385,7 +1385,7 @@ footer {
 }
 
 .loading-estado .loading-spinner {
-    color: #4CAF50;
+    color: #FF6600;
     font-weight: bold;
 }
 
@@ -1433,20 +1433,20 @@ footer {
 
 .grupo-tarjeta {
     background: white;
-    border: 2px solid #4CAF50;
+    border: 2px solid #FF6600;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 102, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .grupo-tarjeta:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 8px 25px rgba(255, 102, 0, 0.3);
 }
 
 .grupo-header {
-    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    background: linear-gradient(135deg, #FF6600 0%, #E65100 100%);
     color: white;
     padding: 1rem;
     display: flex;
@@ -1472,28 +1472,28 @@ footer {
 }
 
 .integrante-item {
-    background: #f8f9fa;
+    background: #FFF8F0;
     padding: 0.75rem;
     margin: 0.5rem 0;
     border-radius: 6px;
-    border-left: 4px solid #4CAF50;
+    border-left: 4px solid #FF6600;
     font-size: 0.95rem;
     transition: background-color 0.2s ease;
 }
 
 .integrante-item:hover {
-    background: #e9ecef;
+    background: #FFE0B2;
 }
 
 .grupo-footer {
-    background: #f8f9fa;
+    background: #FFF8F0;
     padding: 0.75rem 1.5rem;
-    border-top: 1px solid #e9ecef;
+    border-top: 1px solid #FFE0B2;
     text-align: center;
 }
 
 .integrantes-count {
-    color: #4CAF50;
+    color: #FF6600;
     font-weight: 600;
     font-size: 0.9rem;
 }
@@ -1508,14 +1508,14 @@ footer {
 
 .categoria-seccion {
     background: white;
-    border: 2px solid #4CAF50;
+    border: 2px solid #FF6600;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 102, 0, 0.2);
 }
 
 .categoria-header {
-    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    background: linear-gradient(135deg, #FF6600 0%, #E65100 100%);
     color: white;
     padding: 1rem 1.5rem;
     display: flex;
@@ -1545,17 +1545,17 @@ footer {
 }
 
 .fecha-header {
-    background: #f8f9fa;
+    background: #FFF8F0;
     padding: 0.75rem 1.5rem;
     display: flex;
     align-items: center;
     gap: 1rem;
-    border-bottom: 2px solid #4CAF50;
+    border-bottom: 2px solid #FF6600;
 }
 
 .fecha-dia {
     font-weight: bold;
-    color: #4CAF50;
+    color: #FF6600;
     font-size: 1.1rem;
 }
 
@@ -1575,20 +1575,20 @@ footer {
     align-items: center;
     padding: 0.75rem;
     margin: 0.5rem 0;
-    background: #f8f9fa;
+    background: #FFF8F0;
     border-radius: 8px;
-    border-left: 4px solid #4CAF50;
+    border-left: 4px solid #FF6600;
     transition: all 0.2s ease;
     overflow: hidden;
 }
 
 .partido-item:hover {
-    background: #e9ecef;
+    background: #FFE0B2;
     transform: translateX(2px);
 }
 
 .partido-hora {
-    background: #4CAF50;
+    background: #FF6600;
     color: white;
     padding: 0.5rem;
     border-radius: 4px;
@@ -1607,7 +1607,7 @@ footer {
 
 .partido-local, .partido-visitante {
     font-weight: 600;
-    color: #2c3e50;
+    color: #1a1a1a;
     font-size: 0.9rem;
     min-width: 0;
     overflow: hidden;
@@ -1622,8 +1622,8 @@ footer {
 }
 
 .partido-categoria {
-    background: #e8f4f8;
-    color: #2980b9;
+    background: #FFF3E0;
+    color: #E65100;
     padding: 0.25rem 0.75rem;
     border-radius: 4px;
     font-size: 0.8rem;
@@ -1892,7 +1892,7 @@ footer {
     font-size: 0.7rem;
     font-weight: 700;
     color: #fff;
-    background: #3498db;
+    background: #FF6600;
     padding: 2px 8px;
     border-radius: 4px;
     flex-shrink: 0;

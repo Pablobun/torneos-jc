@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // Crear grupos por categoría
         Object.keys(jugadoresData).sort().forEach(categoria => {
-            html += `<option value="" disabled style="font-weight: bold; color: #4CAF50;">${categoria}:</option>`;
+            html += `<option value="" disabled style="font-weight: bold; color: #FF6600;">${categoria}:</option>`;
             jugadoresData[categoria].forEach(jugador => {
                 html += `<option value="${jugador}">${jugador}</option>`;
             });

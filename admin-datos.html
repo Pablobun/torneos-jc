@@ -7,29 +7,29 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .admin-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .admin-header { background: linear-gradient(135deg, #2c3e50, #34495e); color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .admin-header { background: linear-gradient(135deg, #1a1a1a, #333333); color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
         .admin-header h1 { margin: 0; font-size: 1.5rem; }
         .selector-row { display: flex; gap: 15px; flex-wrap: wrap; align-items: center; }
         .selector-row select { padding: 10px; border-radius: 5px; border: 2px solid #ddd; font-size: 1rem; min-width: 200px; }
         .btn-cerrar { background: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; }
         .tabs { display: flex; gap: 5px; margin-bottom: 20px; flex-wrap: wrap; }
         .tab-btn { padding: 12px 24px; background: #ecf0f1; border: none; cursor: pointer; font-size: 1rem; border-radius: 5px 5px 0 0; transition: all 0.3s; }
-        .tab-btn.active { background: #4CAF50; color: white; }
+        .tab-btn.active { background: #FF6600; color: white; }
         .tab-btn:hover:not(.active) { background: #bdc3c7; }
         .tab-content { display: none; background: white; padding: 20px; border-radius: 0 5px 5px 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .tab-content.active { display: block; }
-        .section-title { color: #2c3e50; border-bottom: 2px solid #4CAF50; padding-bottom: 10px; margin-bottom: 20px; }
+        .section-title { color: #1a1a1a; border-bottom: 2px solid #FF6600; padding-bottom: 10px; margin-bottom: 20px; }
         .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
         .form-group { display: flex; flex-direction: column; }
         .form-group label { font-weight: 600; margin-bottom: 5px; color: #555; }
         .form-group input, .form-group select { padding: 10px; border: 2px solid #ddd; border-radius: 5px; }
-        .btn-primary { background: #4CAF50; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; }
-        .btn-primary:hover { background: #45a049; }
+        .btn-primary { background: #FF6600; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; }
+        .btn-primary:hover { background: #E65100; }
         .btn-warning { background: #f39c12; color: white; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer; }
         .btn-danger { background: #e74c3c; color: white; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer; }
         .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
         .data-table th, .data-table td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        .data-table th { background: #2c3e50; color: white; }
+        .data-table th { background: #1a1a1a; color: white; }
         .data-table tr:hover { background: #f5f5f5; }
         .badge { padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; }
         .badge-pendiente { background: #f39c12; color: white; }
@@ -43,11 +43,11 @@
         .modal.active { display: flex; align-items: center; justify-content: center; }
         .modal-content { background: white; padding: 25px; border-radius: 10px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; }
         .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .modal-header h3 { margin: 0; color: #2c3e50; }
+        .modal-header h3 { margin: 0; color: #1a1a1a; }
         .cerrar-modal { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
         .empty-state { text-align: center; padding: 40px; color: #7f8c8d; }
-        .card { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #4CAF50; }
-        .card-header { font-weight: 600; color: #2c3e50; margin-bottom: 10px; }
+        .card { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #FF6600; }
+        .card-header { font-weight: 600; color: #1a1a1a; margin-bottom: 10px; }
         .checkbox-list { max-height: 200px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; border-radius: 5px; }
         .checkbox-item { display: flex; align-items: center; gap: 8px; padding: 5px 0; }
         .actions-cell { display: flex; gap: 5px; }
