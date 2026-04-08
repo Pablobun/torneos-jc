@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://portaltorneos-riocuarto.com.ar/" />
+    <title>Inscripcion Torneo de Tenis "Copa Aero Club" - Rio Cuarto</title>
+    <meta name="description" content="Inscríbete ahora en la Copa  de Río Cuarto. Consulta las categorías, fechas y disponibilidad horaria. ¡No te quedes afuera!">
+    <meta name="google-site-verification" content="guqR1lrPGf9LByj_rACLHm93SnAXCT2zkUGzhFnLRuA" />
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <div class="container">
+        <header>
+                <!-- NUEVO: Aquí añadimos la imagen del logo -->
+    <img src="logo.png" alt="Logo Academia de Tenis Guido Ferrer" class="header-logo">
+        <!-- NUEVO: Envolvemos el texto en un div para alinearlo mejor -->
+    <div class="header-text">
+        <h1>Torneo Abierto de Tenis "Copa Aero Club"</h1>
+        <p class="subtitle">¡¡Inscripciones Abiertas!!!!</p>
+    </div>
+        </header>
+            
+        <main>
+            <!-- AÑADE ESTE BLOQUE DE CÓDIGO aca estaba INSCRITOS (sacar disbles para activar)-->
+        <div class="view-list-link">
+            <!--            href="inscriptos.html"  (esto va despues de la a y antes de >)                   -->
+        <a href="inscriptos.html">Ver Lista de Parejas Inscriptas &rarr;</a>
+         </div>
+    
+            <section id="info-torneo">
+                <h2>Detalles del Torneo</h2>
+                <ul>
+                    <li><strong>Fechas del Torneo:</strong> Del 13 de Abril al 20 de Abril, 2026</li>
+                    <li><strong>Lugar:</strong> Club de Tenis "Aero Club Rio Cuarto"</li>
+                    <li><strong>Modalidad:</strong> Torneo Dobles Femenino/Masculino </li>
+                    <li><strong>Costo de Inscripción:</strong> $40.000 por Jugador/$37.000 por Jugador (Socio/Alumno del club) </li>
+                    <li><strong>Con tu inscripción:</strong> Hidratacion,Mix Vitta + voucher descuento,Voucher Cantina Aero y Muchos Sorteos!!!</li>
+                </ul>
+            </section>
+
+            <section id="formulario-inscripcion">
+                <h2>Formulario de Inscripción</h2>
+                <form id="registrationForm" novalidate>
+                <div class="form-group-duo">
+                    <div class="form-group">
+                    <label for="integrante">Integrante:</label>
+                    <input type="text" id="integrante_masculino" name="integrante_masculino" placeholder="Nombre (Abreviar) y Apellido" maxlength="16" required>
+                    </div>
+                    <div class="form-group">
+                    <label for="integrante">Integrante:</label>
+                    <input type="text" id="integrante_femenino" name="integrante_femenino" placeholder="Nombre (Abreviar) y Apellido" maxlength="16" required>
+                    </div>
+                </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico de Contacto:</label>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono de Contacto:</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Tu número de teléfono" required>
+                    </div>
+<div class="form-group">
+                        <label for="categoria">Categoría:</label>
+                        <select id="categoria" name="categoria" required>
+                            <option value="" disabled selected>Selecciona una categoría</option>
+                            <option value="M-B">Masc-B</option>
+                            <option value="F-B">Fem-B</option>
+                           <option value="M-C">Masc-C</option>
+                            <option value="F-C">Fem-C</option>
+                            <option value="M-D">Masc-D</option>
+                            <option value="F-D">Fem-D</option>
+                             <option value="M-E">Masc-E</option>
+                             <option value="F-E">Fem-E</option>
+                           <!--  <option value="F-60">Fem +60</option> -->
+                        </select>
+                    </div> <!-- Cierre del form-group de categoría -->
+
+                    <!-- NUEVO: Contenedor para los checkboxes de horarios -->
+                    <div id="horarios-container" class="horarios-container">
+                        <p>Cargando horarios disponibles...</p>
+                    </div>
+
+                    <!-- ESTA ES LA VERSIÓN CORREGIDA DEL CHECKBOX -->
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terminos" name="terminos" required>
+                        <label for="terminos">Acepto los <a href="reglamento.pdf" download target="_blank">términos y condiciones</a> del torneo.</label>
+                    </div>
+
+                    <!-- Div para mostrar errores del servidor -->
+                    <div id="server-message" class="hidden"></div>
+
+                    <button type="submit">Inscribir Pareja</button>
+                </form>
+            <!-- aviso confirmacion -->
+            <div id="confirmationMessage" class="hidden">
+                <h3>¡Inscripción Exitosa!</h3>
+                <p>Gracias por registrar a tu pareja. Hemos recibido tus datos correctamente.</p>
+                <p>¡Nos vemos en la cancha!</p>
+            </div>
+
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-texto">
+        <p>&copy; 2025 Escuela de Tenis "Guido Ferrer".</p>
+        <p>Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-logos">
+        <span>Desarrollado por:</span>
+        <a href="https://www.itecriocuarto.org.ar/itec-labs" target="_blank">
+            <img src="logos/logoiteclabs.png" alt="ITECLABS SOFTWARE">
+            
+        </a>
+    </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+
+
+    <!-- =============================== -->
+    <!-- ==  NUEVO: MODAL DE SPONSORS == -->
+    <!-- =============================== -->
+    <div id="modal-sponsors" class="modal-overlay">
+        <div class="modal-contenido">
+            <button id="cerrar-modal" class="cerrar-modal">&times;</button>
+            <h2>Apoyan este evento</h2>
+            <div class="sponsors-grid">
+                <a href="https://www.instagram.com/kevingston.riocuarto/" target="_blank" class="insta-link" data-user="kevingston.riocuarto">
+            <img src="banners/Kevin.jpg" alt="Publicidad Kevingston Rio Cuarto">
+                </a>
+            <a href="https://www.instagram.com/magnagooutdoor/" target="_blank" class="insta-link" data-user="magnagooutdoor">
+            <img src="banners/magnano.jpg" alt="Publicidad Outdor">
+                </a>    
+                <a href="https://www.petenattihogar.com.ar/" target="_blank" >
+            <img src="banners/bannerpetenatti.jpg" alt="Publicidad Petenatti Rio Cuarto">
+                </a>
+               <!-- <a href="https://www.instagram.com/lorenaborgognoviajes/" target="_blank" class="insta-link" data-user="lorenaborgognoviajes">
+            <img src="banners/bannersborgo.jpg" alt="Publicidad Lorena Borgogno Turismo">
+                </a>-->
+                
+               
+                <a href="https://www.instagram.com/amvito_inmobiliario/" target="_blank" class="insta-link" data-user="amvito_inmobiliario">
+            <img src="banners/amvito.jpg" alt="Publicidad Inmobiliaria Amvito Rio Cuarto">
+                </a>
+                 
+                
+                
+            <a href="https://segurosenriocuarto.com/" target="_blank">
+            <img src="banners/gustlopez.jpg" alt="Publicidad Seguros Rio Cuarto">
+                </a>
+            <a href="https://www.instagram.com/gaston_factory/" target="_blank" class="insta-link" data-user="gaston_factory">
+            <img src="banners/fact.jpg" alt="Publicidad FActory Rio Cuarto">
+                </a>
+                <a href="https://www.vittaproductosnaturales.com.ar/" target="_blank">
+            <img src="banners/bannervitta.jpg" alt="Vitta Productos Naturales">
+                </a>
+                
+                <a href="https://www.instagram.com/rioquim.r4/" target="_blank" class="insta-link" data-user="rioquim.r4">
+            <img src="banners/banner-rq-vertical.jpg" alt="Publicidad Rio Quim Rio Cuarto">
+                </a>
+             <a href="https://www.instagram.com/let.tecnologia/" target="_blank" class="insta-link" data-user="let.tecnologia">
+            <img src="banners/mojishop-let-blanco2.jpg" alt="Publicidad LET Tecnologia">
+                </a>   
+             <a href="https://glrepresentaciones.com.ar/" target="_blank">
+            <img src="banners/lyg.jpg" alt="Publicidad Giralda Lopez">
+                </a>    
+            <!--<a href="https://www.instagram.com/vuelosriocuarto/" target="_blank" class="insta-link" data-user="vuelosriocuarto">
+            <img src="banners/vuelos.jpg" alt="Publicidad Vuelos Rio Cuarto">
+                </a>-->
+                
+                <a href="https://www.instagram.com/rumipal_bebidas/" target="_blank" class="insta-link" data-user="rumipal_bebidas">
+            <img src="banners/rumipalbanner.jpg" alt="Publicidad Rumipal Rio cuarto">
+                </a>
+                <a href="https://www.itecriocuarto.org.ar/carreras/inteligencia-artificial" target="_blank">
+            <img src="banners/banner-ia-vertical.jpg" alt="Publicidad Tecnicatura en Ciencia de Datos e IA">
+                </a>
+ <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    
+    if (esMovil) {
+        document.querySelectorAll('.insta-link').forEach(link => {
+            const username = link.getAttribute('data-user');
+            const webUrl = `https://www.instagram.com/${username}/`;
+            
+            link.removeAttribute('target');
+            link.href = webUrl;
+        });
+    }
+});
+</script>
+
+                
+                
+                <!--<a href="https://www.instagram.com/piedralibrepolirubro/" target="_blank">
+            <img src="banners/piedralibrebanner.jpg" alt="Publicidad Piedra Libre Rio Cuarto">
+                </a> -->
+                <!-- Si tienes más sponsors, añade más enlaces <a> aquí -->
+            </div>
+            <p class="modal-instruccion">Cierra esta ventana para continuar con la inscripción.</p>
+            <p class="modal-agradecimiento">¡Gracias por apoyar el deporte!</p>
+        </div>
+    </div>
+
+</body>
+</html>

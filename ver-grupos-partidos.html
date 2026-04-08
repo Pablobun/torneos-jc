@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupos y Calendario - Torneo de Tenis "Copa Aero Club"</title>
+    <meta name="description" content="Visualización de grupos formados y calendario de partidos del Torneo de Tenis Copa Aero Club. Filtros por categoría y jugador.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @media (max-width: 768px) {
+            .toggle-buttons {
+                flex-direction: column !important;
+                gap: 8px !important;
+            }
+            
+            .toggle-btn {
+                width: 100% !important;
+                box-sizing: border-box !important;
+                text-align: center !important;
+                padding: 12px !important;
+                font-size: 14px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="Logo Academia de Tenis" class="header-logo">
+            <div class="header-text">
+                <h1>📊 Grupos y Calendario de Partidos</h1>
+                <p class="subtitle">Visualización de Grupos Formados y Calendario de Partidos</p>
+            </div>
+        </header>
+
+        <main>
+            <!-- Información del Torneo -->
+            <section id="titulo-vista">
+                <h2>Información del Torneo</h2>
+                <div id="info-torneo">
+                    <p>Cargando información del torneo...</p>
+                </div>
+            </section>
+
+            <!-- Filtros Avanzados -->
+            <section id="filtros-avanzados">
+                <h2>Filtros de Búsqueda</h2>
+                <div class="filtros-grid">
+                    <div class="filtro-item">
+                        <label for="filtro-categoria">Categoría:</label>
+                        <select id="filtro-categoria">
+                            <option value="">Todas las categorías</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filtro-item">
+                        <label for="filtro-jugador">Buscar jugador:</label>
+                        <input type="text" id="filtro-jugador" 
+                               placeholder="Escriba el nombre del jugador..." 
+                               list="jugadores-list" autocomplete="off">
+                        <datalist id="jugadores-list">
+                            <!-- se poblará dinámicamente -->
+                        </datalist>
+                    </div>
+                    
+                    <div class="filtro-item">
+                        <button id="btn-limpiar-filtros" class="btn-secondary">
+                            🔄 Limpiar Filtros
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Toggle de Vista -->
+            <section id="toggle-vista">
+                <h2>Opciones de Visualización</h2>
+                <div class="toggle-buttons">
+                    <button class="toggle-btn active" data-vista="ambos">
+                        📊 Todos
+                    </button>
+                    <button class="toggle-btn" data-vista="grupos">
+                        👥 Grupos
+                    </button>
+                    <button class="toggle-btn" data-vista="partidos">
+                        📅 Calendario
+                    </button>
+                    <a href="ver-resultados.html" class="toggle-btn" style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white; text-decoration: none;">
+                        📈 Resultados
+                    </a>
+                    <a href="ver-playoffs.html" class="toggle-btn" style="background: linear-gradient(135deg, #ffd700, #ffed4e); color: #333; text-decoration: none;">
+                        🏆 Playoffs
+                    </a>
+                </div>
+            </section>
+
+            <!-- Estado de carga -->
+            <div id="loading-estado" class="loading-estado">
+                <div class="loading-spinner">
+                    <p>Cargando información del torneo...</p>
+                    <div class="spinner"></div>
+                </div>
+            </div>
+
+            <!-- Contenido Principal -->
+            <div id="contenido-principal" class="contenido-principal hidden">
+                
+                <!-- Sección de Grupos -->
+                <section id="seccion-grupos" class="vista-seccion">
+                    <h2>👥 Grupos Formados</h2>
+                    <div id="grupos-container">
+                        <!-- grupos se renderizarán aquí -->
+                    </div>
+                </section>
+
+                <!-- Sección de Partidos -->
+                <section id="seccion-partidos" class="vista-seccion">
+                    <h2>📅 Calendario de Partidos</h2>
+                    <div id="partidos-container">
+                        <!-- partidos se renderizarán aquí -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Mensajes de estado -->
+            <div id="mensaje-estado" class="mensaje-estado hidden"></div>
+        </main>
+
+        <footer>
+            <div class="footer-texto">
+                <p>&copy; 2025 Escuela de Tenis "Guido Ferrer".</p>
+                <p>Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-logos">
+                <span>Desarrollado por:</span>
+                <a href="https://www.itecriocuarto.org.ar/itec-labs" target="_blank">
+                    <img src="logos/logoiteclabs.png" alt="ITECLABS SOFTWARE">
+                </a>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="ver-grupos-partidos.js"></script>
+    <!-- =============================== -->
+    <!-- ==  NUEVO: MODAL DE SPONSORS == -->
+    <!-- =============================== -->
+    <div id="modal-sponsors" class="modal-overlay">
+        <div class="modal-contenido">
+            <button id="cerrar-modal" class="cerrar-modal">&times;</button>
+            <h2>Apoyan este evento</h2>
+            <div class="sponsors-grid">
+                <a href="https://www.instagram.com/kevingston.riocuarto/" target="_blank" class="insta-link" data-user="kevingston.riocuarto">
+            <img src="banners/Kevin.jpg" alt="Publicidad Kevingston Rio Cuarto">
+                </a>
+                <a href="https://www.petenattihogar.com.ar/" target="_blank" >
+            <img src="banners/bannerpetenatti.jpg" alt="Publicidad Petenatti Rio Cuarto">
+                </a>
+               <!-- <a href="https://www.instagram.com/lorenaborgognoviajes/" target="_blank" class="insta-link" data-user="lorenaborgognoviajes">
+            <img src="banners/bannersborgo.jpg" alt="Publicidad Lorena Borgogno Turismo">
+                </a>-->
+                
+                <a href="https://glrepresentaciones.com.ar/" target="_blank">
+            <img src="banners/lyg.jpg" alt="Publicidad Giralda Lopez">
+                </a>
+                <a href="https://www.instagram.com/amvito_inmobiliario/" target="_blank" class="insta-link" data-user="amvito_inmobiliario">
+            <img src="banners/amvito.jpg" alt="Publicidad Inmobiliaria Amvito Rio Cuarto">
+                </a>
+                 
+                <a href="https://www.instagram.com/let.tecnologia/" target="_blank" class="insta-link" data-user="let.tecnologia">
+            <img src="banners/mojishop-let-blanco2.jpg" alt="Publicidad LET Tecnologia">
+                </a>
+            <a href="https://segurosenriocuarto.com/" target="_blank">
+            <img src="banners/gustlopez.jpg" alt="Publicidad Seguros Rio Cuarto">
+                </a>
+             <a href="https://www.instagram.com/vuelosriocuarto/" target="_blank" class="insta-link" data-user="vuelosriocuarto">
+            <img src="banners/vuelos.jpg" alt="Publicidad Vuelos Rio Cuarto">
+                </a>   
+            
+                <a href="https://www.vittaproductosnaturales.com.ar/" target="_blank">
+            <img src="banners/bannervitta.jpg" alt="Vitta Productos Naturales">
+                </a>
+                
+                <a href="https://www.instagram.com/rioquim.r4/" target="_blank" class="insta-link" data-user="rioquim.r4">
+            <img src="banners/banner-rq-vertical.jpg" alt="Publicidad Rio Quim Rio Cuarto">
+                </a>
+             <a href="https://www.instagram.com/gaston_factory/" target="_blank" class="insta-link" data-user="gaston_factory">
+            <img src="banners/fact.jpg" alt="Publicidad FActory Rio Cuarto">
+                </a>   
+                <a href="https://www.instagram.com/rumipal_bebidas/" target="_blank" class="insta-link" data-user="rumipal_bebidas">
+            <img src="banners/rumipalbanner.jpg" alt="Publicidad Rumipal Rio cuarto">
+                </a>
+                <a href="https://www.itecriocuarto.org.ar/carreras/inteligencia-artificial" target="_blank">
+            <img src="banners/banner-ia-vertical.jpg" alt="Publicidad Tecnicatura en Ciencia de Datos e IA">
+                </a>
+ <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    
+    if (esMovil) {
+        document.querySelectorAll('.insta-link').forEach(link => {
+            const username = link.getAttribute('data-user');
+            const webUrl = `https://www.instagram.com/${username}/`;
+            
+            link.removeAttribute('target');
+            link.href = webUrl;
+        });
+    }
+});
+</script>
+
+                
+                
+                <!--<a href="https://www.instagram.com/piedralibrepolirubro/" target="_blank">
+            <img src="banners/piedralibrebanner.jpg" alt="Publicidad Piedra Libre Rio Cuarto">
+                </a> -->
+                <!-- Si tienes más sponsors, añade más enlaces <a> aquí -->
+            </div>
+            <p class="modal-instruccion">Cierra esta ventana para continuar con la Consulta.</p>
+            <p class="modal-agradecimiento">¡Gracias por apoyar el deporte!</p>
+        </div>
+    </div>
+</body>
+</html>

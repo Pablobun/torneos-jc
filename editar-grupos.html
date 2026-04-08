@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Grupos - Torneo de Tenis "Copa Aero Club"</title>
+    <meta name="description" content="Edición de grupos y partidos del Torneo de Tenis Copa Aero Club. Gestión de horarios y enfrentamientos.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Menú de Gestión del Torneo */
+        #menu-gestion {
+            margin-bottom: 30px;
+        }
+        
+        #menu-gestion h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4CAF50;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        
+        .menu-card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            background: #f8fff8;
+        }
+        
+        .menu-card.menu-public {
+            border-left-color: #2196F3;
+            background: linear-gradient(135deg, #f5f9ff, white);
+        }
+        
+        .menu-card.menu-public:hover {
+            background: linear-gradient(135deg, #e3f2fd, white);
+        }
+        
+        .menu-icon {
+            font-size: 36px;
+            margin-right: 15px;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .menu-content h3 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+        
+        .menu-content p {
+            margin: 0;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .menu-card {
+                padding: 15px;
+            }
+            
+            .menu-icon {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body class="editar-grupos">
+    <script>
+        // Verificar autenticación
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = 'login.html';
+        }
+        
+        // Obtener información del usuario
+        const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
+        
+        // Verificar grupos
+        async function verificarGrupos() {
+            try {
+                const response = await fetch('https://torneojc.onrender.com/api/verificar-grupos', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const data = await response.json();
+                window.hayGrupos = data.hayGrupos;
+                return data.hayGrupos;
+            } catch (error) {
+                console.error('Error al verificar grupos:', error);
+                window.hayGrupos = false;
+                return false;
+            }
+        }
+        
+        // Función de logout
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('usuario');
+            window.location.href = 'login.html';
+        }
+    </script>
+    
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="Logo Academia de Tenis" class="header-logo">
+            <div class="header-text">
+                <h1>Editar Grupos y Partidos</h1>
+                <p class="subtitle">Gestión de Horarios y Enfrentamientos</p>
+            </div>
+        </header>
+        
+        <!-- Barra de usuario -->
+        <div id="user-bar" style="background: #2c3e50; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+            <span id="user-name" style="font-weight: bold; font-size: 1.1rem;">👤 Cargando...</span>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; align-items: center;">
+                <a href="admin-datos.html" style="background: #4CAF50; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; font-size: 14px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                    🛠️ Admin Datos
+                </a>
+                <button id="btn-reset-password" onclick="abrirModalResetPassword()" style="display: none; background: #ff9800; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                    🔄 Reset Contraseña
+                </button>
+                <button onclick="logout()" style="background: #f44336; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                    🚪 Cerrar Sesión
+                </button>
+            </div>
+        </div>
+
+        <main>
+            <!-- Estado del torneo -->
+            <section id="estado-torneo">
+                <h2>Información del Torneo</h2>
+                <div id="info-torneo">
+                    <p>Cargando información del torneo...</p>
+                </div>
+            </section>
+
+            <!-- Menú de Gestión del Torneo -->
+            <section id="menu-gestion">
+                <h2>📊 Gestión del Torneo</h2>
+                <div class="menu-grid">
+                    <a href="cargar-resultados.html" class="menu-card">
+                        <div class="menu-icon">📝</div>
+                        <div class="menu-content">
+                            <h3>Cargar Resultados</h3>
+                            <p>Registrá los sets, games y super tie-breaks de cada partido</p>
+                        </div>
+                    </a>
+                    
+                    <a href="posiciones-grupos.html" class="menu-card">
+                        <div class="menu-icon">📈</div>
+                        <div class="menu-content">
+                            <h3>Posiciones de Grupos</h3>
+                            <p>Tablas en tiempo real con estadísticas y clasificados</p>
+                        </div>
+                    </a>
+                    
+
+                    <a href="llave-eliminacion.html" class="menu-card">
+                        <div class="menu-icon">🏁</div>
+                        <div class="menu-content">
+                            <h3>Playoffs</h3>
+                            <p>Gestionar horarios y resultados de la fase final</p>
+                        </div>
+                    </a>
+                    
+                    <a href="ver-playoffs.html" class="menu-card menu-public" target="_blank">
+                        <div class="menu-icon">👁️</div>
+                        <div class="menu-content">
+                            <h3>Ver Playoffs (Público)</h3>
+                            <p>Vista pública del bracket para consulta</p>
+                        </div>
+                    </a>
+                    <a href="gestionar-horarios.html" class="menu-card">
+                        <div class="menu-icon">📅</div>
+                        <div class="menu-content">
+                            <h3>Gestionar Horarios</h3>
+                            <p>Configurar fechas, horas y canchas disponibles</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Resumen de grupos -->
+            <section id="resumen-grupos">
+                <h2>Grupos Formados</h2>
+                <div class="filtro-categoria-container" style="margin-bottom: 15px;">
+                    <label for="filtro-categoria" style="font-weight: bold; margin-right: 10px;">Filtrar por Categoría:</label>
+                    <select id="filtro-categoria" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+                        <option value="">Todas las categorías</option>
+                    </select>
+                </div>
+                <div id="grupos-container">
+                    <p>Cargando grupos...</p>
+                </div>
+            </section>
+
+            <!-- Lista de partidos -->
+            <section id="partidos-section">
+                <h2>Partidos Programados</h2>
+                <div id="partidos-container">
+                    <p>Cargando partidos...</p>
+                </div>
+            </section>
+
+            <!-- Partidos pendientes -->
+            <section id="partidos-pendientes-section" class="hidden">
+                <h2>Partidos Pendientes (Sin Horario)</h2>
+                <div id="partidos-pendientes-container">
+                    <p>No hay partidos pendientes.</p>
+                </div>
+            </section>
+
+            <!-- Botones de acción -->
+            <section id="acciones">
+                <div class="action-buttons">
+                    <button id="btn-volver" class="btn-secondary">Volver a Grupos</button>
+                    <button id="btn-actualizar" class="btn-primary">Actualizar Cambios</button>
+                </div>
+            </section>
+
+            <!-- Mensajes y notificaciones -->
+            <div id="notification-container"></div>
+            
+            <!-- Indicador de carga -->
+            <div id="loading-overlay" class="hidden">
+                <div class="loading-spinner">
+                    <p>Cargando datos...</p>
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-texto">
+                <p>&copy; 2025 Escuela de Tenis "Guido Ferrer".</p>
+                <p>Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-logos">
+                <span>Desarrollado por:</span>
+                <a href="https://www.itecriocuarto.org.ar/itec-labs" target="_blank">
+                    <img src="logos/logoiteclabs.png" alt="ITECLABS SOFTWARE">
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal para resetear contraseña -->
+    <div id="modal-reset-password" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 30px; border-radius: 10px; max-width: 400px; width: 90%;">
+            <h3>🔄 Resetear Contraseña</h3>
+            <p style="color: #666; margin-bottom: 20px;">Seleccioná el usuario para resetear su contraseña:</p>
+            <select id="select-usuario-reset" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 2px solid #ddd; border-radius: 5px;">
+                <option value="">Cargando usuarios...</option>
+            </select>
+            <div style="display: flex; gap: 10px;">
+                <button onclick="cerrarModalResetPassword()" style="flex: 1; padding: 12px; background: #ddd; border: none; border-radius: 5px; cursor: pointer;">Cancelar</button>
+                <button onclick="resetearPassword()" style="flex: 1; padding: 12px; background: #ff9800; color: white; border: none; border-radius: 5px; cursor: pointer;">Resetear</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mostrar nombre de usuario
+        if (usuario && usuario.nombre) {
+            document.getElementById('user-name').textContent = `👤 ${usuario.nombre} ${usuario.tipo_usuario === 1 ? '(Admin)' : '(Profe)'}`;
+            
+            // Mostrar botón de resetear password solo para admin
+            if (usuario.tipo_usuario === 1) {
+                document.getElementById('btn-reset-password').style.display = 'inline-block';
+            }
+        }
+        
+        // Modal de reset password
+        function abrirModalResetPassword() {
+            document.getElementById('modal-reset-password').style.display = 'flex';
+            cargarUsuariosParaReset();
+        }
+        
+        function cerrarModalResetPassword() {
+            document.getElementById('modal-reset-password').style.display = 'none';
+        }
+        
+        async function cargarUsuariosParaReset() {
+            try {
+                const response = await fetch('https://torneojc.onrender.com/api/usuarios', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const data = await response.json();
+                
+                const select = document.getElementById('select-usuario-reset');
+                select.innerHTML = '<option value="">Seleccionar usuario...</option>';
+                
+                data.usuarios.forEach(u => {
+                    const option = document.createElement('option');
+                    option.value = u.nombre;
+                    option.textContent = `${u.nombre} ${u.tipo_usuario === 1 ? '(Admin)' : '(Profe)'}`;
+                    select.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error al cargar usuarios:', error);
+                alert('Error al cargar usuarios');
+            }
+        }
+        
+        async function resetearPassword() {
+            const nombre = document.getElementById('select-usuario-reset').value;
+            if (!nombre) {
+                alert('Seleccioná un usuario');
+                return;
+            }
+            
+            if (!confirm(`¿Estás seguro de resetear la contraseña de ${nombre}?\n\nEl usuario deberá establecer una nueva contraseña al iniciar sesión.`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch('https://torneosjc.onrender.com/api/auth/reset-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ nombre })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert(data.mensaje);
+                    cerrarModalResetPassword();
+                } else {
+                    alert(data.error || 'Error al resetear contraseña');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error de conexión');
+            }
+        }
+        
+        // Verificar grupos y ajustar interfaz
+        verificarGrupos().then(hayGrupos => {
+            const menuGestion = document.getElementById('menu-gestion');
+            const estadoTorneo = document.getElementById('estado-torneo');
+            
+            if (!hayGrupos) {
+                // Ocultar menú si no hay grupos
+                if (menuGestion) menuGestion.style.display = 'none';
+                
+                // Mostrar mensaje y botón para ir a grupos
+                estadoTorneo.innerHTML = `
+                    <h2>⚠️ Grupos no generados</h2>
+                    <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 20px 0;">
+                        <p style="color: #856404; font-size: 16px; margin-bottom: 15px;">
+                            No se han generado los grupos para el torneo activo.
+                        </p>
+                        <p style="color: #856404; margin-bottom: 20px;">
+                            Debes generar los grupos antes de poder acceder a las demás funciones.
+                        </p>
+                        <a href="grupos.html" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
+                            🚀 Ir a Generar Grupos
+                        </a>
+                    </div>
+                `;
+            } else {
+                // Agregar botón "Ir a Grupos" en el menú
+                const menuGrid = document.querySelector('.menu-grid');
+                if (menuGrid) {
+                    const btnGrupos = document.createElement('a');
+                    btnGrupos.href = 'grupos.html';
+                    btnGrupos.className = 'menu-card';
+                    btnGrupos.innerHTML = `
+                        <div class="menu-icon">⚙️</div>
+                        <div class="menu-content">
+                            <h3>Generar/Ver Grupos</h3>
+                            <p>Configurar y generar grupos del torneo</p>
+                        </div>
+                    `;
+                    menuGrid.insertBefore(btnGrupos, menuGrid.firstChild);
+                }
+            }
+        });
+    </script>
+    
+    <script src="editar-grupos.js"></script>
+</body>
+</html>
