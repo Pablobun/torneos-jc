@@ -39,7 +39,7 @@ torneos/
 ### Frontend (JS)
 - Variables en camelCase: `gruposGenerados`, `configuracionGrupos`
 - Funciones descriptivas: `mostrarGruposFormados()`, `validarConfiguracion()`
-- API URL base: `https://academia-torneos.onrender.com/api`
+- API URL base: `https://torneojc.onrender.com/api`
 - Siempre validar respuestas del servidor antes de procesar
 
 ### CSS
@@ -58,16 +58,16 @@ torneos/
 1. **Editar en Codespace** (VS Code online) o localmente
 2. **Test local** si es posible
 3. **Git commit + push** → dispara deploy automático
-4. **Verificar en** https://portaltorneos-riocuarto.com.ar
+4. **Verificar en** https://jockeyclub.portaltorneos-riocuarto.com.ar
 
 ### Ruta Local del Repositorio
-**Ruta principal:** `C:\torneos`
-- Todos los archivos del proyecto están en `C:\torneos\`
+**Ruta principal:** `C:\torneos-jc`
+- Todos los archivos del proyecto están en `C:\torneos-jc\`
 - NO trabajar en `C:\Users\p_bun\torneonotocar\` - esa no es la ruta correcta
 
 ### RESTRICCIÓN IMPORTANTE
-**SOLO PUEDE TRABAJAR EN LA CARPETA `C:\torneos`**
-- Salvo expresa respuesta afirmativa de Pablo Bunader, NO se puede modificar archivos fuera de `C:\torneos`
+**SOLO PUEDE TRABAJAR EN LA CARPETA `C:\torneos-jc`**
+- Salvo expresa respuesta afirmativa de Pablo Bunader, NO se puede modificar archivos fuera de `C:\torneos-jc`
 - Se requiere aprobación explícita en el momento para trabajar en cualquier otra ruta
 - Esta regla es estricta y no tiene excepciones
 
