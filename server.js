@@ -4101,7 +4101,7 @@ app.delete('/api/admin/inscriptos/:id', authMiddleware, async (req, res) => {
         
         // Verificar si está en algún partido
         const [enPartido] = await connection.execute(
-            'SELECT COUNT(*) as count FROM partidos WHERE id_inscriptoL = ? OR id_inscriptoR = ?',
+            'SELECT COUNT(*) as count FROM partido WHERE id_inscriptoL = ? OR id_inscriptoV = ?',
             [id, id]
         );
         
