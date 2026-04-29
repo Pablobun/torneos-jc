@@ -1949,3 +1949,32 @@ footer {
 .grupos-partidos-list .partido-horario-container {
     flex-shrink: 0;
 }
+
+/* Botones de ordenamiento de partidos */
+.orden-toggle {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-toggle {
+    padding: 8px 16px;
+    border: 2px solid #4CAF50;
+    background: white;
+    color: #4CAF50;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-toggle:hover {
+    background: #4CAF50;
+    color: white;
+}
+
+.btn-toggle.active {
+    background: #4CAF50;
+    color: white;
+}
