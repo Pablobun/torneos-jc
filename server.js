@@ -727,7 +727,7 @@ return String(fecha).split(' ')[0].split('T')[0];
                     const fecha = h.fecha;
                     const pLocal = Array.from(jugadorFechas[localId] || []).filter(f => f === fecha).length;
                     const pVisit = Array.from(jugadorFechas[visitanteId] || []).filter(f => f === fecha).length;
-                    return { id, uso: usoHorarios[id] || 0, cupboardo: horarios.find(x => x.id === id)?.cupo ?? 4, fecha };
+                    return { id, uso: usoHorarios[id] || 0, cupo: horarios.find(x => x.id === id)?.cupo ?? 4, fecha };
                 }).sort((a, b) => a.uso - b.uso);
 
                 for (const hInfo of horariosInfo) {
