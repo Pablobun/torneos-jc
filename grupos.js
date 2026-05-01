@@ -328,7 +328,16 @@ async function inicializar() {
             
             // Ordenar partidos según modo
             let partidosOrdenados = [...partidosGenerados];
-            if (modoOrdenPartidos === 'fecha') {
+            if (modoOrdenPartidos === 'categoria') {
+                // Ordenar por grupo, luego por categoría, luego por nombre
+                partidosOrdenados.sort((a, b) => {
+                    if (a.grupo !== b.grupo) return a.grupo - b.grupo;
+                    const catA = a.categoria || '';
+                    const catB = b.categoria || '';
+                    if (catA !== catB) return catA.localeCompare(catB);
+                    return (a.localNombre || '').localeCompare(b.localNombre || '');
+                });
+            } else if (modoOrdenPartidos === 'fecha') {
                 const diasOrden = {
                     'Domingo': 1,
                     'Lunes': 2,
