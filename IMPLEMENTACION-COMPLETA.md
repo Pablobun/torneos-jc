@@ -1,6 +1,6 @@
 # 🎯 IMPLEMENTACIÓN COMPLETA - SISTEMA DE LLAVES POR CATEGORÍA
 
-## ✅ **Algoritmo de Árbol Binario Completo**
+## ✅ **Algoritmo de Árbol Binario Completo **
 
 ### **1. Fundamento Matemático**
 
