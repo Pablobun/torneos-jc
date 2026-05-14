@@ -24,7 +24,7 @@
         <!-- NUEVO: Envolvemos el texto en un div para alinearlo mejor -->
     <div class="header-text">
         <h1>Torneo Abierto de Tenis "Copa Jockey Club"</h1>
-        <p class="subtitle">¡¡Inscripciones Cerradas!!!!</p>
+        <p class="subtitle">¡¡Inscripciones Abiertas!!!!</p>
     </div>
         </header>
             
@@ -38,9 +38,9 @@
             <section id="info-torneo">
                 <h2>Detalles del Torneo</h2>
                 <ul>
-                    <li><strong>Fechas del Torneo:</strong> Del 4 de Mayo al 10 de Mayo, 2026</li>
+                    <li><strong>Fechas del Torneo:</strong> Del 22 de Junio al 5 de Julio, 2026</li>
                     <li><strong>Lugar:</strong> Club de Tenis "Jockey Club Rio Cuarto"</li>
-                    <li><strong>Modalidad:</strong> Torneo Dobles Femenino/Masculino </li>
+                    <li><strong>Modalidad:</strong> Torneo Single Femenino/Masculino </li>
                     <li><strong>Costo de Inscripción:</strong> $40.000 por Jugador/$37.000 por Jugador (Socio del club) </li>
                     <li><strong>Con tu inscripción:</strong> Mix energético de Coquito’s,Credencial colgante con nombre y apellido para tu raquetero de “Testa Motors“ </li>
                 </ul>
@@ -51,12 +51,12 @@
                 <form id="registrationForm" novalidate>
                 <div class="form-group-duo">
                     <div class="form-group">
-                    <label for="integrante">Integrante:</label>
-                    <input type="text" id="integrante_masculino" name="integrante_masculino" placeholder="Nombre (Abreviar) y Apellido" maxlength="16" required>
+                    <label for="integrante">Nombre:</label>
+                    <input type="text" id="integrante_masculino" name="integrante_masculino" placeholder="Nombre (Abreviar)" maxlength="10" required>
                     </div>
                     <div class="form-group">
-                    <label for="integrante">Integrante:</label>
-                    <input type="text" id="integrante_femenino" name="integrante_femenino" placeholder="Nombre (Abreviar) y Apellido" maxlength="16" required>
+                    <label for="integrante">Apellido:</label>
+                    <input type="text" id="integrante_femenino" name="integrante_femenino" placeholder="Apellido" maxlength="16" required>
                     </div>
                 </div>
                     
@@ -73,17 +73,17 @@
                         <label for="categoria">Categoría:</label>
                         <select id="categoria" name="categoria" required>
                             <option value="" disabled selected>Selecciona una categoría</option>
-                        <!--    <option value="M-A">Masc-A</option> -->
-                        <!--    <option value="F-A">Fem-A</option> -->
-                        <!--    <option value="M-B">Masc-B</option> -->
-                         <!--   <option value="F-B">Fem-B</option>-->
-                          <!-- <option value="M-C">Masc-C</option> -->
-                        <!--  <option value="F-C">Fem-C</option> -->
-                        <!--    <option value="M-D">Masc-D</option> -->
-                         <!--     <option value="F-D">Fem-D</option> -->
+                        <option value="M-A">Masc-A</option> 
+                        <option value="F-A">Fem-A</option> 
+                        <option value="M-B">Masc-B</option> 
+                        <option value="F-B">Fem-B</option>
+                        <option value="M-C">Masc-C</option>
+                        <option value="F-C">Fem-C</option> 
+                        <option value="M-D">Masc-D</option>
+                        <option value="F-D">Fem-D</option> 
                         <!--      <option value="F-D">Fem-D</option> -->
-                            <!-- <option value="M-E">Masc-E</option> -->
-                           <!--  <option value="F-E">Fem-E</option> -->
+                        <option value="M-E">Masc-E</option>
+                        <option value="F-E">Fem-E</option> 
                            <!--  <option value="F-60">Fem +60</option> -->
                         </select>
                     </div> <!-- Cierre del form-group de categoría -->
@@ -107,7 +107,7 @@
             <!-- aviso confirmacion -->
             <div id="confirmationMessage" class="hidden">
                 <h3>¡Inscripción Exitosa!</h3>
-                <p>Gracias por registrar a tu pareja. Hemos recibido tus datos correctamente.</p>
+                <p>Gracias por registrarte. Hemos recibido tus datos correctamente.</p>
                 <p>¡Nos vemos en la cancha!</p>
             </div>
 
@@ -147,17 +147,24 @@
                <!-- <a href="https://www.instagram.com/lorenaborgognoviajes/" target="_blank" class="insta-link" data-user="lorenaborgognoviajes">
             <img src="banners/bannersborgo.jpg" alt="Publicidad Lorena Borgogno Turismo">
                 </a>-->
-                
-               
+            <a href="https://www.instagram.com/toxico_rio4/" target="_blank" class="insta-link" data-user="toxico_rio4">
+            <img src="banners/toxico.jpg" alt="Publicidad toxico Rio Cuarto">
+                </a>    
+            <a href="https://www.instagram.com/almibar_joyas/" target="_blank" class="insta-link" data-user="almibar_joyas">
+            <img src="banners/joyas.jpg" alt="Publicidad Almibar Joyas Rio Cuarto">
+                </a>    
+            <a href="https://www.instagram.com/casamadre.r4/" target="_blank" class="insta-link" data-user="casamadre.r4">
+            <img src="banners/casamadre.jpg" alt="Publicidad casa madre Rio Cuarto">
+                </a>   
                   
                 
                 
-                <a href="https://www.instagram.com/testa.motors/" target="_blank" class="insta-link" data-user="testa.motors">
+             <!--   <a href="https://www.instagram.com/testa.motors/" target="_blank" class="insta-link" data-user="testa.motors">
             <img src="banners/testa.png" alt="Publicidad Testa Motors Rio Cuarto">
                 </a>
               <a href="https://www.instagram.com/paula.basicos" target="_blank" class="insta-link" data-user="paula.basicos">
             <img src="banners/paula.jpg" alt="Publicidad paula Rio cuarto">
-                </a>
+                </a>-->
                
                  
             <!--<a href="https://www.instagram.com/vuelosriocuarto/" target="_blank" class="insta-link" data-user="vuelosriocuarto">
@@ -165,13 +172,13 @@
                 </a>-->
                 
                 
-                 <a href="https://www.instagram.com/alfredosmondino" target="_blank" class="insta-link" data-user="alfredosmondino">
+                <!-- <a href="https://www.instagram.com/alfredosmondino" target="_blank" class="insta-link" data-user="alfredosmondino">
             <img src="banners/mondino.jpg" alt="Publicidad MOndino Rio Cuarto">
-                </a>
+                </a>-->
             <a href="https://www.instagram.com/casamadre.r4/" target="_blank" class="insta-link" data-user="casamadre.r4">
             <img src="banners/casamadre.jpg" alt="Publicidad casa madre Rio Cuarto">
                 </a> 
-                <a href="https://www.instagram.com/contenedoresalzaco" target="_blank" class="insta-link" data-user="contenedoresalzaco">
+            <!--    <a href="https://www.instagram.com/contenedoresalzaco" target="_blank" class="insta-link" data-user="contenedoresalzaco">
             <img src="banners/alzaco.jpg" alt="Publicidad Alzaco Rio Cuarto">
                 </a>
                 <a href="https://www.instagram.com/coquitosriocuarto/" target="_blank" class="insta-link" data-user="coquitosriocuarto">
@@ -180,16 +187,16 @@
                  <a href="https://www.instagram.com/exclusivewines_/" target="_blank" class="insta-link" data-user="exclusivewines_">
             <img src="banners/wines.png" alt="Publicidad Exclusive Wines Rio Cuarto">
                 </a>   
-                
+                <a href="http://www.selloslujan.com.ar/" target="_blank">
+            <img src="banners/lujan.png" alt="Publicidad Sellos Lujan Rio Cuarto">
+                </a>
                 <a href="https://www.instagram.com/biobarica.riocuarto/" target="_blank" class="insta-link" data-user="biobarica.riocuarto">
             <img src="banners/biobarica.jpg" alt="Publicidad Biobarica Rio Cuarto">
-                </a>
+                </a>-->
                 <a href="https://www.instagram.com/jockeyclubriocuarto.tenis/" target="_blank" class="insta-link" data-user="jockeyclubriocuarto.tenis">
             <img src="banners/jockey.jpg" alt="Publicidad Jockey Club Rio Cuarto">
                 </a>
-                <a href="http://www.selloslujan.com.ar/" target="_blank">
-            <img src="banners/lujan.png" alt="Publicidad Sellos Lujan Rio Cuarto">
-                </a> 
+                 
  <script>
 document.addEventListener("DOMContentLoaded", function() {
     const esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
