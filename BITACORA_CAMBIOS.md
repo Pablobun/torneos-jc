@@ -127,8 +127,30 @@ Cuando no había grupos generados, el menú completo se ocultaba y solo aparecí
 **Cambio realizado:**
 - En el mensaje de advertencia (cuando no hay grupos), se agregaron dos botones:
   - "🚀 Ir a Generar Grupos" (ya existía)
-  - "📅 Gestionar Horarios" (nuevo)
-- Ahora el usuario puede gestionar horarios aunque no haya generado grupos todavía
+  
+---
+
+### Cambio #11 - Bugfix: Corrección de disponibilidad y visualización de horarios por fechas
+
+**Archivos modificados:** `editar-grupos.js`, `admin-datos.html`
+
+**Problema:**
+El sistema agrupaba horarios únicamente por el nombre del día de la semana (ej. "Lunes"), ignorando la fecha específica. Esto causaba:
+1.  **Disponibilidad errónea:** Un partido en la "Semana 1" marcaba al jugador como ocupado para la "Semana 2" (mismo día).
+2.  **Visualización confusa:** En la grilla de horarios, los horarios de semanas distintas se mezclaban en la misma columna.
+
+**Cambios realizados:**
+
+| Archivo | Cambio |
+|---------|--------|
+| **editar-grupos.js** | Lógica de disponibilidad: cambiado de `dia_semana` a `fecha` para validar ocupación. |
+| **editar-grupos.js** | Texto de disponibilidad: agregado formato de fecha (`DD/MM`) para mayor claridad. |
+| **admin-datos.html** | Grilla: agrupado dinámico por combinación `día + fecha` para separar semanas. |
+| **admin-datos.html** | Encabezados: formato `DD/MM` para distinguir fechas en la misma columna de día. |
+
+**Explicación:**
+- **Internamente:** La lógica ahora checa `h.fecha` para saber si un jugador está ocupado, eliminando la ambigüedad de semanas.
+- **Visualmente:** Se actualizó la grilla para separar columnas si hay múltiples semanas (ej: "Lunes 22/06", "Lunes 29/06").
 
 ---
 

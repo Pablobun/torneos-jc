@@ -78,20 +78,19 @@ document.addEventListener('DOMContentLoaded', function () {
     function construirDiasOcupadosPorInscripto(partidos) {
         const ocupados = {};
 
-        partidos.forEach(p => {
-            // Solo cuenta partidos reales con horario asignado
-            if (!p || p.es_agenda) return;
-            if (!p.id_horario || !p.dia_semana) return;
+            partidos.forEach(p => {
+                // Solo cuenta partidos reales con horario asignado
+                if (!p || p.es_agenda) return;
+                if (!p.id_horario || !p.fecha) return;
 
-            const dia = normalizarDia(p.dia_semana);
-            if (!dia) return;
+                const fechaKey = p.fecha || 'Sin fecha';
 
-            [p.local_id, p.visitante_id].forEach(idInscripto => {
-                if (!idInscripto) return;
-                if (!ocupados[idInscripto]) ocupados[idInscripto] = new Set();
-                ocupados[idInscripto].add(dia);
+                [p.local_id, p.visitante_id].forEach(idInscripto => {
+                    if (!idInscripto) return;
+                    if (!ocupados[idInscripto]) ocupados[idInscripto] = new Set();
+                    ocupados[idInscripto].add(fechaKey);
+                });
             });
-        });
 
         return ocupados;
     }
@@ -388,20 +387,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 // Mostrar horarios disponibles
                 const horariosLocal = (horariosPorInscripto[localId] || []).filter(h => {
-                    const dia = normalizarDia(h.dia_semana);
-                    return !diasOcupadosPorInscripto[localId] || !diasOcupadosPorInscripto[localId].has(dia);
+                    return !diasOcupadosPorInscripto[localId] || !diasOcupadosPorInscripto[localId].has(h.fecha);
                 });
                 const horariosVisitante = (horariosPorInscripto[visitanteId] || []).filter(h => {
-                    const dia = normalizarDia(h.dia_semana);
-                    return !diasOcupadosPorInscripto[visitanteId] || !diasOcupadosPorInscripto[visitanteId].has(dia);
+                    return !diasOcupadosPorInscripto[visitanteId] || !diasOcupadosPorInscripto[visitanteId].has(h.fecha);
                 });
                 
                 const horariosLocalText = horariosLocal.length > 0 
-                    ? horariosLocal.map(h => `${h.dia_semana} ${h.hora_inicio}`).join(', ')
+                    ? horariosLocal.map(h => `${h.dia_semana} ${formatearFecha(h.fecha)} ${h.hora_inicio}`).join(', ')
                     : 'Sin horarios registrados';
                     
                 const horariosVisitanteText = horariosVisitante.length > 0 
-                    ? horariosVisitante.map(h => `${h.dia_semana} ${h.hora_inicio}`).join(', ')
+                    ? horariosVisitante.map(h => `${h.dia_semana} ${formatearFecha(h.fecha)} ${h.hora_inicio}`).join(', ')
                     : 'Sin horarios registrados';
                 
                 if (!esAgenda) {
