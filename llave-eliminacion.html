@@ -450,13 +450,13 @@
                         <div class="form-group">
                             <label>Lugar</label>
                             <select id="horario-lugar">
-                                <option value="Aeroclub" selected>Aeroclub</option>
+                                <option value="Aeroclub">Aeroclub</option>
                                 <option value="Malon">Malon</option>
                                 <option value="Challenger">Challenger</option>
                                 <option value="Estudiantes">Estudiantes</option>
                                 <option value="Tenis Rio Cuarto">Tenis Rio Cuarto</option>
                                 <option value="Banda Norte">Banda Norte</option>
-                                <option value="Jockey Club">Jockey Club</option>
+                                <option value="Jockey Club"  selected>Jockey Club</option>
                             </select>
                         </div>
                     </div>
@@ -768,7 +768,7 @@
                 <div class="horario-card">
                     <div class="horario-info">
                         <h4>${h.dia_semana} ${formatearFechaLocal(h.fecha)}</h4>
-                        <p>${h.hora_inicio} - ${h.lugar || 'Aeroclub'}</p>
+                        <p>${h.hora_inicio} - ${h.lugar || 'Jockey Club'}</p>
                         <p style="font-size: 10px; color: #FF6600;">
                             ✓ Horario disponible (reusable)
                         </p>
