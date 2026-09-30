@@ -52,7 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }, {});
 
             // 4. Construir el HTML de los checkboxes
-            let html = '<h4>Por favor, selecciona todos los horarios en los que podrías jugar:(Lunes, Martes y Miercoles son Feriados!!!) </h4>';
+            //let html = '<h4>Por favor, selecciona todos los horarios en los que podrías jugar:(Lunes, Martes y Miercoles son Feriados!!!) </h4>';
+            let html = '<h4>Por favor, selecciona todos los horarios en los que podrías jugar:<br><span style="color: #dc3545; font-weight: bold;">(¡¡Lunes, Martes y Miércoles son Feriados!!)</span>';
             for (const dia in horariosPorDia) {
                 html += `<div class="dia-grupo"><h5>${dia}</h5><div class="horarios-grid">`;
                 horariosPorDia[dia].forEach(h => {
